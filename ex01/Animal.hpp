@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Brain.hpp"
 
-class Animal : public virtual Brain
+class Animal
 {
     protected:
         std::string type;

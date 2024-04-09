@@ -14,7 +14,9 @@ class Brain
         Brain& operator=(const Brain &copy);
         ~Brain();
         void newIdea(std::string &idea);
+        void setIdeas(const std::string *ideas);
         std::string* getIdeas(void);
+        void setSize(int newSize);
         int getSize(void);
 };
 

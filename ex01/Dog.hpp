@@ -4,7 +4,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public virtual Animal, public virtual Brain
+class Dog : public virtual Animal
 {
     private:
         Brain *_brain;

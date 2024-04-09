@@ -6,9 +6,10 @@ Dog::Dog() : Animal("Dog")
     this->_brain = new Brain;
 }
 
-Dog::Dog(const Dog &copy) : Animal(copy) // Initialize base class
+Dog::Dog(const Dog &copy) : Animal(copy)
 {
     std::cout << "Copy constructor called" << std::endl;
+    this->_brain = new Brain;
     this->operator=(copy);
 }
 
@@ -18,15 +19,8 @@ Dog& Dog::operator= (const Dog &copy)
     std::cout << "Dog copy assignement operator called" << std::endl;
     if(this != &copy)
     {
-        if(this->_brain)
-            delete this->_brain;
-        this->type = copy.type;
-        this->_brain = new Brain;
-        for(int i = 0; i < copy.size ; i++)
-        {
-            this->ideas[i] = copy.ideas[i];
-        }
-        this->size = copy.size;
+        delete this->_brain;
+        this->_brain = new Brain(*(copy._brain));
     }
     return(*this);
 }
