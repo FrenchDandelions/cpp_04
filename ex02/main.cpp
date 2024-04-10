@@ -7,9 +7,9 @@ int main(void)
 {
     {
         std::cout << std::endl << "****************Test1****************" << std::endl << std::endl;
-        // const Animal* meta = new Animal();
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
+        // const AAnimal* meta = new AAnimal();
+        const AAnimal* j = new Dog();
+        const AAnimal* i = new Cat();
 
         // std::cout << "meta is " << meta->getType() << " " << std::endl;
         std::cout << "j is " << j->getType() << " " << std::endl;
@@ -148,7 +148,7 @@ int main(void)
         std::cout << std::endl << "*********Test array creation*********" << std::endl << std::endl;
         const int size = 7;
         std::cout << "The zoo is coming" << std::endl;
-        Animal *zoo[size];
+        AAnimal *zoo[size];
         for (int i = 0; i <= size; i++)
         {
             (i % 2 == 0) ? zoo[i] = new Dog() : zoo[i] = new Cat();
@@ -156,7 +156,7 @@ int main(void)
         std::cout << std::endl;
         for (int i = 0; i <= size; i++)
         {
-            std::cout << "Animal "<< i + 1 << " is a " << zoo[i]->getType() << " " << std::endl;
+            std::cout << "AAnimal "<< i + 1 << " is a " << zoo[i]->getType() << " " << std::endl;
         }
         std::cout << std::endl;
         for(int i = 0; i <= size; i++)
