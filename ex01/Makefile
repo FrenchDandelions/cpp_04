@@ -20,17 +20,17 @@ INCLUDE = Animal.hpp \
 			Brain.hpp \
 
 OBJECTS = $(SRC_FILES:.cpp=.o)
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .cpp.o:
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)  
 
 $(NAME) : $(OBJECTS) $(INCLUDE) Makefile
 	@echo "$(GOLD_COLOR)Compiling Anima...$(RESET)"
-	$(CC) $(CFLAGS) -o $(NAME)  $(OBJECTS) 
+	$(CXX) $(CXXFLAGS) -o $(NAME)  $(OBJECTS) 
 	@echo "$(GOLD_COLOR)Anima compiled ! :)$(RESET)"
 
 clean:

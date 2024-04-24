@@ -5,8 +5,10 @@
 
 class AMateria
 {
-    private:
-        const std::string &type;
+    protected:
+        const std::string type;
+        AMateria();
+
     public:
         AMateria(std::string const & type);
         AMateria(const AMateria &copy);

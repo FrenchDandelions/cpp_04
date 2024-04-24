@@ -1,37 +1,37 @@
-NAME = Abstract
+NAME = Interface
 VERMILION_RED=\033[1;31m
 AZURE_BLUE=\033[1;34m
 GOLD_COLOR=\033[38;5;220m
 GREEN=\033[0;32m
 RESET=\033[0m
 SRC_FILES = main.cpp \
-			AAnimal.cpp \
-			Cat.cpp \
-			Dog.cpp \
-			WrongAnimal.cpp \
-			WrongCat.cpp \
-			Brain.cpp \
+			AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			MateriaSource.cpp \
 
-INCLUDE = AAnimal.hpp \
-			Cat.hpp \
-			Dog.hpp \
-			WrongAnimal.hpp \
-			WrongCat.hpp \
-			Brain.hpp \
+INCLUDE = AMateria.hpp \
+			Character.hpp \
+			Cure.hpp \
+			Ice.hpp \
+			ICharacter.hpp \
+			IMateriaSource.hpp \
+			MateriaSource.hpp \
 
 OBJECTS = $(SRC_FILES:.cpp=.o)
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .cpp.o:
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)  
 
 $(NAME) : $(OBJECTS) $(INCLUDE) Makefile
-	@echo "$(GOLD_COLOR)Compiling Abstract...$(RESET)"
-	$(CC) $(CFLAGS) -o $(NAME)  $(OBJECTS) 
-	@echo "$(GOLD_COLOR)Abstract compiled ! :)$(RESET)"
+	@echo "$(GOLD_COLOR)Compiling Interface...$(RESET)"
+	$(CXX) $(CXXFLAGS) -o $(NAME)  $(OBJECTS) 
+	@echo "$(GOLD_COLOR)Interface compiled ! :)$(RESET)"
 
 clean:
 	@echo "$(AZURE_BLUE)Cleaning in progress...$(RESET)"
