@@ -115,7 +115,7 @@ int main(void)
         std::cout << "cat1 is " << cat1->getType() << " " << std::endl;
 
         std::cout << "dog1 has " << dog1->getBrain()->getSize() << " ideas" << std::endl;
-        std::cout << "cat1 has " << cat1->getSize() << " ideas" << std::endl;
+        std::cout << "cat1 has " << cat1->getBrain()->getSize() << " ideas" << std::endl;
         std::cout << "Now let's add some ideas inside dog1's brain!" << std::endl;
         for(int i = 0; i < 6; i++)
         {
