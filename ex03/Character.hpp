@@ -21,6 +21,7 @@ class Character : virtual public ICharacter
         void equip(AMateria *m);
         void unequip(int indx);
         void use(int indx, ICharacter& target);
+        AMateria *getMateria(int indx) const;
 };
 
 #endif

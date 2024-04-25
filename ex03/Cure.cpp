@@ -5,8 +5,10 @@ Cure::Cure() : AMateria("cure")
     std::cout << "Materia cure created!" << std::endl;
 }
 
+/*returns NULL if the new fails*/
 AMateria * Cure::clone() const
 {
+    std::cout << "Cure cloned !" << std::endl;
     return(new (std::nothrow) Cure());
 }
 

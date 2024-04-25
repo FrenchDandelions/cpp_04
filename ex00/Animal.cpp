@@ -29,7 +29,7 @@ Animal& Animal::operator= (const Animal &copy)
 
 void Animal::makeSound(void) const
 {
-    std::cout << getType() << " makes Random animal noises" << std::endl;
+    std::cout << getType() << " makes random animal noises" << std::endl;
 }
 
 std::string Animal::getType(void) const

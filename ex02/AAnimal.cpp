@@ -27,11 +27,6 @@ AAnimal& AAnimal::operator= (const AAnimal &copy)
     return(*this);
 }
 
-void AAnimal::makeSound(void) const
-{
-    std::cout << getType() << " makes Random Aanimal noises" << std::endl;
-}
-
 std::string AAnimal::getType(void) const
 {
     return(this->type);

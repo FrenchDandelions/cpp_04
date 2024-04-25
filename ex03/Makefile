@@ -13,6 +13,7 @@ SRC_FILES = main.cpp \
 
 INCLUDE = AMateria.hpp \
 			Character.hpp \
+			Colors.hpp \
 			Cure.hpp \
 			Ice.hpp \
 			ICharacter.hpp \

@@ -3,26 +3,26 @@
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "Colors.hpp"
 
 int main()
 {
-    // Constructors
     {
-        std::cout << "*****************Basic test*****************" << std::endl;
+		std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"BASIC TEST:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    std::cout << std::endl;
-	    std::cout << "CONSTRUCTORS:" << std::endl;
-	    std::cout << "-----------------------" << std::endl;
+	    std::cout << GREEN "CONSTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    IMateriaSource* src = new MateriaSource();
 	    src->learnMateria(new Ice());
 	    src->learnMateria(new Cure());
 	    ICharacter* me = new Character("me");
 	    std::cout << std::endl; 
 
-	    // Create Materia
-	    std::cout << "CREATE MATERIA:" << std::endl;
-	    std::cout << "-----------------------" << std::endl;
+	    std::cout << GREEN "CREATE MATERIA:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    AMateria	*tmp;
-    
 	    AMateria	*tmp1;
 	    AMateria	*tmp2;
 	    AMateria	*tmp3;  
@@ -35,9 +35,8 @@ int main()
 	    me->equip(tmp);
 	    std::cout << std::endl; 
 
-	    // Use on a new character
-	    std::cout << "USE ON A NEW CHARACTER:" << std::endl;
-	    std::cout << "-----------------------" << std::endl;
+	    std::cout << GREEN "USE ON A NEW CHARACTER:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    ICharacter* bob = new Character("bob");
 	    me->use(0, *bob);
 	    me->use(1, *bob);
@@ -48,8 +47,8 @@ int main()
 	    std::cout << std::endl; 
 
 	    // Deep copy character
-	    std::cout << "DEEP COPY CHARACTER:" << std::endl;
-	    std::cout << "-----------------------" << std::endl;
+	    std::cout << GREEN "DEEP COPY CHARACTER:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    Character	*charles = new Character("Charles");
 	    tmp2 = src->createMateria("cure");
 	    charles->equip(tmp2);
@@ -61,8 +60,8 @@ int main()
 	    std::cout << std::endl; 
 
 	    // Deep copy vs its source character
-	    std::cout << "DEEP COPY VS SOURCE:" << std::endl;
-	    std::cout << "-----------------------" << std::endl;
+	    std::cout << GREEN "DEEP COPY VS SOURCE:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    charles->unequip(0); // this shows that they have different materia pointers equipped
 	    tmp = src->createMateria("cure");
 	    charles_copy->equip(tmp);
@@ -81,21 +80,19 @@ int main()
 	    charles_copy->use(3, *bob);
 	    std::cout << std::endl; 
 
-	    // Unequip tests:
-	    std::cout << "UNEQUIP:" << std::endl;
-	    std::cout << "-----------------------" << std::endl;
+	    std::cout << GREEN "UNEQUIP:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    me->unequip(-1); // unequip an empty / non existing slot in inventory
 	    me->unequip(18);
 	    me->unequip(3);
 	    std::cout << std::endl;
 	    me->use(1, *charles);
 	    me->unequip(1); // Unequip a valid slot in inventory (cure unequipped)
-	    me->use(1, *charles); // try to use it
+	    me->use(1, *charles);
 	    std::cout << std::endl; 
 
-	    // Destructors
-	    std::cout << "DESTRUCTORS:" << std::endl;
-	    std::cout << "-----------------------" << std::endl;
+	    std::cout << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    delete bob;
 	    delete me;
 	    delete src;
@@ -106,33 +103,51 @@ int main()
 	    std::cout << std::endl;
     }
     {
-	    std::cout << std::endl;
-        std::cout << "********Test overloading inventories********" << std::endl;
-        MateriaSource *src = new MateriaSource();
-        std::cout << std::endl << "-----Learning new materias-----" << std::endl;
+	    std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST OVERLOADING INVENTORIES:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+        MateriaSource *src = new MateriaSource(); //creating new materiasource to store materias
+	
+		std::cout << std::endl << GREEN "LEARNING NEW MATERIAS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
 	    src->learnMateria(new Ice());
 	    src->learnMateria(new Cure());
         src->learnMateria(new Ice());
-        std::cout << std::endl << "-----Testing copy operator-----"<< std::endl;
+
+		std::cout << std::endl << GREEN "TESTING COPY OPERATOR:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         MateriaSource *src2 = new MateriaSource(*src);
+		std::cout << std::endl << GREEN "OVERLOADING MATERIASOURCE:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         src2->learnMateria(new Ice());
-        src2->learnMateria(new Ice());
-        src->learnMateria(new Ice());
-        std::cout << std::endl << "---Creating new Materias to put inside the inventory--" << std::endl;
-        std::cout << std::endl << "-----Creating new character to overload-----"<< std::endl;
-        Character *me = new Character("Robert");
+		AMateria *ice = new Ice();
+        src2->learnMateria(ice);//this one cannot be added
+        src->learnMateria(new Ice());//shows that they are different ptrs
+	
+        std::cout << std::endl << GREEN "CREATING NEW CHARACTER TO OVERLOAD:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+		Character *me = new Character("Robert");
+	
+		std::cout << std::endl << GREEN "CREATING NEW MATERIAS TO PUT INSIDE THE INVENTORY:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         AMateria *tmp = src2->createMateria("cure");
         AMateria *tmp1 = src2->createMateria("cure");
         AMateria *tmp2 = src2->createMateria("ice");
         AMateria *tmp3 = src2->createMateria("ice");
         AMateria *tmp4 = src2->createMateria("ice");
+	
         me->equip(tmp);
         me->equip(tmp1);
         me->equip(tmp2);
         me->equip(tmp3);
-        me->equip(tmp4);
+        me->equip(tmp4);//this one cannot be equipped
+
+		std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         delete src;
         delete src2;
         delete me;
+		delete tmp4;
+		delete ice;
     }
 }

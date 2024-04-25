@@ -23,7 +23,7 @@ Dog& Dog::operator= (const Dog &copy)
 
 void Dog::makeSound(void) const
 {
-    std::cout << getType() << " makes Random dog noises" << std::endl;
+    std::cout << getType() << " makes random dog noises" << std::endl;
 }
 
 Dog::~Dog()

@@ -2,12 +2,16 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 #include "Brain.hpp"
+#include "Colors.hpp"
 
 int main(void)
 {
     {
-        std::cout << std::endl << "****************Test1****************" << std::endl << std::endl;
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST 1:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         // const AAnimal* meta = new AAnimal();
+        // AAnimal me;
         const AAnimal* j = new Dog();
         const AAnimal* i = new Cat();
 
@@ -20,11 +24,15 @@ int main(void)
         // meta->makeSound();
 
         // delete meta;
+        std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         delete j;
         delete i;
     }
     {
-        std::cout << std::endl << "****************Test2****************" << std::endl << std::endl;
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST 2:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         const WrongAnimal* base = new WrongAnimal();
         const WrongAnimal* rando = new WrongCat();
 
@@ -34,12 +42,17 @@ int main(void)
         rando->makeSound();
         base->makeSound();
 
+        std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         delete base;
         delete rando;
     }
     {
-        std::cout << std::endl << "****************Test3****************" << std::endl << std::endl;
-        std::cout << std::endl << "*********Testing brain class*********" << std::endl << std::endl;
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST 3:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+        std::cout << std::endl << GREEN "TESTING BRAIN CLASS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         Brain brain1;
 
         for(int i = 0; i < 6; i++)
@@ -86,10 +99,15 @@ int main(void)
             std::cout << idea << std::endl;
             brain1.newIdea(idea);
         }
+        std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
     }
     {
-        std::cout << std::endl << "****************Test4****************" << std::endl << std::endl;
-        std::cout << std::endl << "***Testing new dog and cat classes***" << std::endl << std::endl;
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST 4:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+        std::cout << std::endl << GREEN "TESTING NEW DOG AND CAT CLASSES:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         Dog *dog1 = new Dog;
         Cat *cat1 = new Cat;
 
@@ -120,7 +138,7 @@ int main(void)
         std::cout << "Now let's put more ideas inside dog2's brain!" << std::endl; 
         for(int i = 0; i < 6; i++)
         {
-            std::string idea = "I'm a dog";
+            std::string idea = "I'm a woof";
             std::cout << "Adding new idea..." << std::endl;
             dog2->getBrain()->newIdea(idea);
         }
@@ -139,13 +157,18 @@ int main(void)
         cat1->getBrain()->newIdea(newidea);
         std::cout << "Idea cat1: " << cat1->getBrain()->getIdeas()[0] << std::endl;
         std::cout << "Let's be careful around the cat..." << std::endl;
+        std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         delete dog1;
         delete cat1;
         delete dog2;
     }
     {
-        std::cout << std::endl << "****************Test5****************" << std::endl << std::endl;
-        std::cout << std::endl << "*********Test array creation*********" << std::endl << std::endl;
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST 5:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+        std::cout << std::endl << GREEN "TEST ARRAY CREATION:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         const int size = 7;
         std::cout << "The zoo is coming" << std::endl;
         AAnimal *zoo[size];
@@ -164,6 +187,8 @@ int main(void)
             zoo[i]->makeSound();
         }
         std::cout << std::endl;
+        std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         for(int i = 0; i <= size; i++)
             delete zoo[i];
     }

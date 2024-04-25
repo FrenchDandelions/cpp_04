@@ -14,6 +14,7 @@ SRC_FILES = main.cpp \
 
 INCLUDE = AAnimal.hpp \
 			Cat.hpp \
+			Colors.hpp \
 			Dog.hpp \
 			WrongAnimal.hpp \
 			WrongCat.hpp \

@@ -29,6 +29,11 @@ std::string MateriaSource::getType(int index) const
         std::cout << "Error, wrong index" << std::endl;
         return("None");
     }
+    if(this->_materias[index] == NULL)
+    {
+        std::cout << "Error, there is no materia at this emplacement" << std::endl;
+        return("None");
+    }
     return(this->_materias[index]->getType());
 }
 
@@ -63,6 +68,11 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria* newMateria)
 {
+    if(newMateria == NULL)
+    {
+        std::cout << "There is no new materia to be learned, it's NULL" << std::endl;
+        return;
+    }
     if(this->_num_materia < 4)
     {
         this->_materias[this->_num_materia] = newMateria;
@@ -71,10 +81,10 @@ void MateriaSource::learnMateria(AMateria* newMateria)
     else
     {
         std::cout << "Couldn't learn the new materia because the MateriaSource was full" << std::endl;
-        delete newMateria;
     }
 }
 
+/*returns a new object of the string passed as parameter, returns NULL if the new fails or if the materia doesn't exist*/
 AMateria* MateriaSource::createMateria(std::string const & type) const
 {
     if(type == "ice")

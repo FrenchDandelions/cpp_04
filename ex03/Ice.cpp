@@ -5,8 +5,10 @@ Ice::Ice() : AMateria("ice")
     std::cout << "Materia ice created!" << std::endl;
 }
 
+/*returns NULL if the new fails*/
 AMateria * Ice::clone() const
 {
+    std::cout << "Ice cloned !" << std::endl;
     return(new (std::nothrow) Ice());
 }
 

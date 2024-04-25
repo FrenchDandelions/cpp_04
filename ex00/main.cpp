@@ -1,11 +1,14 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
+#include "Colors.hpp"
 
 int main(void)
 {
     {
-        std::cout << std::endl << "****************Test1****************" << std::endl << std::endl;
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST 1:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         const Animal* meta = new Animal();
         const Animal* j = new Dog();
         const Animal* i = new Cat();
@@ -19,11 +22,15 @@ int main(void)
         meta->makeSound();
 
         delete meta;
+        std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         delete j;
         delete i;
     }
     {
-        std::cout << std::endl << "****************Test2****************" << std::endl << std::endl;
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"TEST 2:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         const WrongAnimal* base = new WrongAnimal();
         const WrongAnimal* rando = new WrongCat();
 
@@ -33,8 +40,9 @@ int main(void)
         rando->makeSound();
         base->makeSound();
 
+        std::cout << std::endl << GREEN "DESTRUCTORS:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         delete base;
         delete rando;
     }
-
 }

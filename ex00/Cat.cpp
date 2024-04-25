@@ -23,7 +23,7 @@ Cat& Cat::operator= (const Cat &copy)
 
 void Cat::makeSound(void) const
 {
-    std::cout << getType() << " makes Random cat noises" << std::endl;
+    std::cout << getType() << " makes random cat noises" << std::endl;
 }
 
 Cat::~Cat()
